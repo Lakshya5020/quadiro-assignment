@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Car</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .edit-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px;
+        background-color: rgb(30, 172, 219);
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 150px;
+    }
+</style>
+
+<body>
+    <div class="edit-container">
+        <h1>Edit Car</h1>
+        <form action="/admin/dashboard/<%= carToEdit._id %>?_method=PUT" method="POST">
+            <div>
+                <label for="name">Car Name:</label><br>
+                <input type="text" name="car[name]" value="<%= carToEdit.name %>" required>
+            </div>
+            <div>
+                <label for="year">Manufacturing Year:</label><br>
+                <input type="number" name="car[year]" value="<%= carToEdit.year %>" required>
+            </div>
+            <div>
+                <label for="price">Price:</label><br>
+                <input type="number" name="car[price]" value="<%= carToEdit.price %>" required>
+            </div>
+            <button type="submit">Update Car</button>
+        </form>
+    </div>
+</body>
+
+</html>

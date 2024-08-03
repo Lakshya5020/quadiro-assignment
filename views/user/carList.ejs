@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<style>
+    a{
+        margin: 10px;
+    }
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin:10px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #d0cbcb;
+    }
+</style>
+<body>
+    <h1>Available Cars</h1>
+    <a href="/user/logout">Logout</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Price</th>
+        </tr>
+        <% cars.forEach(car => { %>
+            <tr>
+                <td><%= car.name %></td>
+                <td><%= car.year %></td>
+                <td><%= car.price %></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

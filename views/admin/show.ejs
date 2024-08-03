@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Car</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .show-container {
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc; 
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(30, 172, 219);
+        margin: 10px;
+    }
+
+    button {
+        padding: 5px;
+        background-color: rgb(30, 172, 219);
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="show-container">
+        <h1>Car Details</h1>
+        <p><strong>Model:</strong>
+            <%= carToShow.name %>
+        </p>
+        <p><strong>Year:</strong>
+            <%= carToShow.year %>
+        </p>
+        <p><strong>Price:</strong>
+            <%= carToShow.price %>
+        </p>
+
+        <a href="/admin/dashboard/<%= carToShow._id %>/edit">Edit</a>&nbsp; &nbsp;
+        <form action="/admin/dashboard/<%= carToShow._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+        <br>
+        <br>
+        <a href="/admin/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+
+</html>
